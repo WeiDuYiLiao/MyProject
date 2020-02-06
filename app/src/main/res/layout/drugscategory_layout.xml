@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F2F2F1"
+    >
+    <LinearLayout
+        android:id="@+id/drugscategory_linear"
+        android:layout_width="@dimen/dp_120"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:layout_marginTop="@dimen/sp_20"
+        >
+        <View
+            android:visibility="invisible"
+            android:id="@+id/drugscategory_view"
+            android:layout_width="@dimen/dp_5"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:background="#2982E0"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:id="@+id/drugscategory_name"
+            android:text="1231313"
+            android:gravity="center"
+            android:textSize="@dimen/sp_15"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>
