@@ -41,6 +41,7 @@ public class DiseaseCategoryAdapter extends RecyclerView.Adapter<DiseaseCategory
     @Override
     public DiseaseHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.diseasecategory_layout, null, false);
+
         return new DiseaseHolder(view);
     }
 

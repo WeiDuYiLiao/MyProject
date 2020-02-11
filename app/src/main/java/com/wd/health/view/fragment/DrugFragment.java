@@ -44,6 +44,7 @@ public class DrugFragment extends BaseFragment {
     @Override
     public View getLayoutID(LayoutInflater inflater, ViewGroup container) {
         View view = inflater.inflate(R.layout.drug_layout, null, false);
+
         return view;
     }
 

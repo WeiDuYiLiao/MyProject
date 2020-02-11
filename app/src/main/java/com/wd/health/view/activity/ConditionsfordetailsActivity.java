@@ -64,6 +64,7 @@ public class ConditionsfordetailsActivity extends BaseActivity {
             westernMedicineTreatmentText.setText(res.chineseMedicineTreatment);
             chineseMedicineTreatmentText.setText(res.pathology);
 
+
         }
 
         @Override

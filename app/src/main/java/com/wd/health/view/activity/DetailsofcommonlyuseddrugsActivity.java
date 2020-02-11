@@ -70,6 +70,7 @@ public class DetailsofcommonlyuseddrugsActivity extends BaseActivity {
             holdingconditions.setText(res.storage);
             mattersneedattention.setText(res.mindMatter);
             approvalnumber.setText(res.approvalNumber);
+
         }
 
         @Override

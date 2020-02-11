@@ -36,6 +36,7 @@ public class DrugsKnowledgeAdapter extends RecyclerView.Adapter<DrugsKnowledgeAd
             Log.i("bbbb", list.size()+"");
         }else {
             Log.i("aaaa", "onBindViewHolder: "+"为空");
+
         }
     }
 
