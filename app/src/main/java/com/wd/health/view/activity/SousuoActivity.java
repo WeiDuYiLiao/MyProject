@@ -19,5 +19,7 @@ public class SousuoActivity extends BaseActivity {
     @Override
     protected void initView() {
 
+        //123456846
+
     }
 }
