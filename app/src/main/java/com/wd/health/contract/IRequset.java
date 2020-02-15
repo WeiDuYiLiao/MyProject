@@ -9,9 +9,9 @@ import com.wd.health.model.DiseaseKnowledge;
 import com.wd.health.model.DrugsCategoryList;
 import com.wd.health.model.DrugsKnowledge;
 import com.wd.health.model.DrugsKnowledgeList;
+import com.wd.health.model.PopularSearch;
 import com.wd.health.model.Search;
 import com.wd.health.model.ShowCircleBean;
-import com.wd.health.model.VideoBean;
 
 import java.util.List;
 import java.util.Map;
@@ -68,4 +68,7 @@ public interface IRequset {
     //查询常见药品详情
     @GET("share/knowledgeBase/v1/findDrugsKnowledge")
     Observable<Data<DrugsKnowledge>>findDrugsKnowledge(@Query("id")int id);
+    //热门搜索
+    @GET("share/v1/popularSearch")
+    Observable<Data<List<PopularSearch>>> popularSearch();
 }

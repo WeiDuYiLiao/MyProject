@@ -57,6 +57,7 @@ public class DiseaseAdapter extends RecyclerView.Adapter<DiseaseAdapter.DiseaseH
             holder.disease_name.setTextColor(Color.parseColor("#03A9F4"));
             holder.disease_linear.setBackgroundColor(Color.rgb(255,255,255));
 
+
         }else {
 
             holder.disease_view.setVisibility(View.GONE);
