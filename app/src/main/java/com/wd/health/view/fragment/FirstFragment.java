@@ -33,6 +33,7 @@ import com.wd.health.presenter.XiangqingPresenter;
 import com.wd.health.presenter.ZixunPresenter;
 import com.wd.health.view.Adpter.InquiryAdpter;
 import com.wd.health.view.activity.KnowledgeActivity;
+import com.wd.health.view.activity.MyActivity;
 import com.wd.health.view.activity.SousuoActivity;
 
 import java.util.List;
@@ -140,7 +141,7 @@ public class FirstFragment extends BaseFragment {
 
 
     }
-    @OnClick({R.id.show_disease, R.id.show_drugs,R.id.sousuo})
+    @OnClick({R.id.show_disease, R.id.show_drugs,R.id.sousuo,R.id.text_login})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.show_disease:
@@ -156,7 +157,11 @@ public class FirstFragment extends BaseFragment {
             case R.id.sousuo:
                 Intent intentsousuo = new Intent(getContext(), SousuoActivity.class);
                 startActivity(intentsousuo);
-                getActivity().finish();
+                //getActivity().finish();
+                break;
+            case R.id.text_login:
+                Intent myintent = new Intent(getContext(), MyActivity.class);
+                startActivity(myintent);
                 break;
         }
     }

@@ -5,10 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#F2F2F2"
     tools:context=".view.activity.SousuoActivity">
     <RelativeLayout
-        android:background="@android:color/transparent"
+        android:background="#fff"
         android:layout_width="match_parent"
+
         android:layout_height="@dimen/dp_50">
         <ImageView
             android:layout_width="@dimen/dp_30"
@@ -19,7 +21,7 @@
             android:background="@mipmap/common_icon_white_n"
             />
         <EditText
-            android:id="@+id/sousuo"
+            android:id="@+id/hotsousuo_ed"
             android:layout_marginLeft="@dimen/dp_70"
             android:layout_centerVertical="true"
             android:textColor="#999999"
@@ -36,7 +38,84 @@
                 android:textSize="@dimen/sp_20"
             android:layout_width="@dimen/dp_40"
             android:layout_height="@dimen/dp_30"/>
-
     </RelativeLayout>
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="热门搜索"
+            android:textSize="@dimen/sp_20"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:textColor="#3087ea"
+            ></TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width=  "match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recy_hotsearch"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#fff"
+        >
+        <TextView
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="医生"
+            android:textSize="@dimen/dp_20"
+            android:textColor="#5796D2"
+            >
+        </TextView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_width=  "match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recy_doctor"
+            />
+        <TextView
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="药品"
+            android:textSize="@dimen/dp_20"
+            android:textColor="#5796D2"
+            >
+        </TextView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width=  "match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recy_drugssearchvo"
+            android:layout_marginLeft="@dimen/dp_10"
+            />
+
+        <TextView
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="病症"
+            android:textSize="@dimen/dp_20"
+            android:textColor="#5796D2"
+            >
+        </TextView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width=  "match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recy_diseaseearchsvo"
+            android:layout_marginLeft="@dimen/dp_10"
+            />
+
+    </LinearLayout>
+
 
 </LinearLayout>

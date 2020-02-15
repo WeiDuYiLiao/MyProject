@@ -28,7 +28,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.SousuoActivity"></activity>
+        <activity android:name=".view.activity.MyActivity"></activity>
+        <activity android:name=".view.activity.SousuoActivity" />
         <activity android:name=".view.activity.DetailsofcommonlyuseddrugsActivity" />
         <activity android:name=".view.activity.ConditionsfordetailsActivity" />
         <activity android:name=".view.activity.KnowledgeActivity" />
