@@ -17,5 +17,7 @@ public class MyActivity extends BaseActivity {
     @Override
     protected void initView() {
 
+        //112121212
+
     }
 }
