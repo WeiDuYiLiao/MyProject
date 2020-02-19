@@ -26,56 +26,62 @@ public class DiseaseAdapter extends RecyclerView.Adapter<DiseaseAdapter.DiseaseH
     private Context context;
     private boolean iscircle;
     private int p=0;
+    private View view;
 
     public DiseaseAdapter( Context context) {
         list = new ArrayList<>();
         this.context = context;
     }
 
-    public void addAll(List<Department> departments){
+    public void addAll(List<Department> departments,boolean b){
         if (departments!=null){
             list.addAll(departments);
+            iscircle=b;
         }
     }
 
     @NonNull
     @Override
     public DiseaseHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.disease1_layout, null, false);
-        return new DiseaseHolder(view);
+        if (iscircle) {
+            view = LayoutInflater.from(context).inflate(R.layout.circledosease_layout, null, false);
+            return new DiseaseHolder(view);
+        } else {
+            view = LayoutInflater.from(context).inflate(R.layout.disease1_layout, null, false);
+            return new DiseaseHolder(view);
+        }
     }
-
     @Override
     public void onBindViewHolder(@NonNull DiseaseHolder holder, int position) {
         Department department = list.get(position);
-        holder.disease_name.setText(department.departmentName);
-
-        holder.itemView.setTag(position);
-
-        if (p ==position){
-            holder.disease_view.setVisibility(View.VISIBLE);
-            holder.disease_name.setTextColor(Color.parseColor("#03A9F4"));
-            holder.disease_linear.setBackgroundColor(Color.rgb(255,255,255));
-
-
+        if (iscircle){
+            holder.disease_name.setText(department.departmentName);
+            holder.disease_name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clickLisnerdisease.Circle(list.get(position).id);
+                    clickLisnerdisease.OnClikcheck(list.get(position).departmentName);
+                }
+            });
         }else {
-
-            holder.disease_view.setVisibility(View.GONE);
-            holder.disease_name.setTextColor(Color.parseColor("#333333"));
-            holder.disease_linear.setBackgroundColor(Color.argb(1,242,242,241));
-
-
-        }
-
-
-        holder .itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                p = (int) v.getTag();
-                onClickLisnerdisease.OnClik(list.get(position).id);
-                notifyDataSetChanged();
+            if (p == 0) {
+                holder.disease_name.setText(department.departmentName);
+                holder.disease_linear.setBackgroundColor(Color.rgb(255, 255, 255));
+                holder.disease_name.setTextColor(Color.rgb(0, 0, 255));
+                holder.disease_view.setVisibility(View.VISIBLE);
+                p++;
             }
-        });
+            holder.disease_name.setText(department.departmentName);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    holder.disease_view.setVisibility(View.VISIBLE);
+                    holder.disease_name.setText(department.departmentName);
+                    holder.disease_linear.setBackgroundColor(Color.rgb(255, 255, 255));
+                    holder.disease_name.setTextColor(Color.rgb(0, 0, 255));
+                }
+            });
+        }
     }
 
     @Override
@@ -91,11 +97,24 @@ public class DiseaseAdapter extends RecyclerView.Adapter<DiseaseAdapter.DiseaseH
 
         public DiseaseHolder(@NonNull View itemView) {
             super(itemView);
-            disease_name = itemView.findViewById(R.id.disease_name);
-            disease_linear = itemView.findViewById(R.id.disease_linear);
-            disease_view = itemView.findViewById(R.id.disease_view);
+            if (iscircle){
+                disease_name = itemView.findViewById(R.id.disease_name);
+                disease_linear=null;
+                disease_view=null;
+            }else {
+                disease_name = itemView.findViewById(R.id.disease_name);
+                disease_linear = itemView.findViewById(R.id.disease_linear);
+                disease_view = itemView.findViewById(R.id.disease_view);
+            }
         }
     }
+
+    public OnClickLisnerdisease clickLisnerdisease;
+
+    public void setClickLisnerdisease(OnClickLisnerdisease clickLisnerdisease) {
+        this.clickLisnerdisease = clickLisnerdisease;
+    }
+
 
 
     //接口回调
@@ -106,6 +125,8 @@ public class DiseaseAdapter extends RecyclerView.Adapter<DiseaseAdapter.DiseaseH
     }
 
     public interface OnClickLisnerdisease{
-        void OnClik( int i);
+        void OnClikcheck(String str);
+        void OnClik(View view, int i);
+        void Circle(int departmentid);
     }
 }

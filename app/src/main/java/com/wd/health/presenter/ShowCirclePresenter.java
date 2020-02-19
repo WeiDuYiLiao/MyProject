@@ -7,6 +7,8 @@ import com.wd.health.base.BasePresenter;
 import com.wd.health.contract.DataColl;
 import com.wd.health.contract.IRequset;
 
+import java.util.HashMap;
+
 import io.reactivex.Observable;
 
 public class ShowCirclePresenter extends BasePresenter {
@@ -16,6 +18,6 @@ public class ShowCirclePresenter extends BasePresenter {
 
     @Override
     protected Observable getModel(IRequset iRequset, Object... arge) {
-        return null;
+        return iRequset.checkCirclelist((HashMap)arge[0]);
     }
 }

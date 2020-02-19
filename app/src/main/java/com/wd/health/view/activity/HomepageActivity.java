@@ -1,9 +1,13 @@
 package com.wd.health.view.activity;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -70,8 +74,13 @@ public class HomepageActivity extends BaseActivity {
                 .hide(patientFragment)
                 .hide(mineFragment)
                 .commit();
-        homeLin.setVisibility(View.VISIBLE);
 
+        commentsImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomepageActivity.this,PostPatientActivity.class));
+            }
+        });
     }
 
     @OnClick({R.id.home_lin, R.id.movie_lin, R.id.sick_lin})
@@ -138,4 +147,5 @@ public class HomepageActivity extends BaseActivity {
             finish();
         }
     }
+
 }

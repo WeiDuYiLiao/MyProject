@@ -1,6 +1,5 @@
 package com.wd.health.view.fragment;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import com.wd.health.model.Department;
 import com.wd.health.model.DiseaseCategory;
 import com.wd.health.presenter.DepartmentPresenter;
 import com.wd.health.presenter.DiseaseCategoryPresenter;
-import com.wd.health.view.activity.ConditionsfordetailsActivity;
 import com.wd.health.view.adapter.DiseaseAdapter;
 import com.wd.health.view.adapter.DiseaseCategoryAdapter;
 
@@ -25,7 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
 /*时间:2020/1/9
-创建人:yang 
+创建人:yang
 创建人:杨靖宇*/
 public class DiseaseFragment extends BaseFragment {
     @BindView(R.id.recy_department)
@@ -40,7 +38,6 @@ public class DiseaseFragment extends BaseFragment {
     @Override
     public View getLayoutID(LayoutInflater inflater, ViewGroup container) {
         View view = inflater.inflate(R.layout.disease_layout, null, false);
-
         return view;
     }
 
@@ -74,18 +71,6 @@ public class DiseaseFragment extends BaseFragment {
             diseaseCategoryAdapter.categoryclear();
             diseaseCategoryAdapter.addAll(res);
             diseaseCategoryAdapter.notifyDataSetChanged();
-            diseaseCategoryAdapter.setOnClickLisnerDiseaseCategory(new DiseaseCategoryAdapter.OnClickLisnerDiseaseCategory() {
-                @Override
-                public void OnClik(int i) {
-                    Intent intent=new Intent(getContext(), ConditionsfordetailsActivity.class);
-                    int id = res.get(i).id;
-                    intent.putExtra("id",id);
-                    intent.putExtra("name",res.get(i).name);
-                    startActivity(intent);
-                   getActivity().finish();
-
-                }
-            });
 
         }
 
@@ -101,13 +86,23 @@ public class DiseaseFragment extends BaseFragment {
         @Override
         public void succeed(List<Department> res) {
 
-            diseaseAdapter.addAll(res);
+            diseaseAdapter.addAll(res,false);
             diseaseAdapter.notifyDataSetChanged();
             diseaseAdapter.setOnClickLisnerdisease(new DiseaseAdapter.OnClickLisnerdisease() {
                 @Override
-                public void OnClik( int i) {
+                public void OnClikcheck(String str) {
+
+                }
+
+                @Override
+                public void OnClik(View view, int i) {
                     int id =i;
                     diseaseCategoryPresenter.requsetData(id);
+                }
+
+                @Override
+                public void Circle(int departmentid) {
+
                 }
             });
 

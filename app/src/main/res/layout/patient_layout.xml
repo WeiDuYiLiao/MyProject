@@ -1,31 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#9B9794"
-    android:orientation="vertical">
-
+    >
+    <!--上下可滑动布局-->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dp_70"
         android:layout_height="match_parent">
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:background="#9B9794"
-            android:orientation="vertical">
-
+            >
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/patient_recycler"
+                android:background="#fff"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_20" />
+                android:layout_height="@dimen/dp_60" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/circle_recycler"
+                android:background="#fff"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_below="@+id/patient_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-        </LinearLayout>
+        </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
 
-</LinearLayout>
+    <!--顶部导航栏-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:orientation="horizontal"
+        android:background="#fff"
+        >
+        <TextView
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:id="@+id/text_department"
+            android:text="内科"
+            android:layout_gravity="center_vertical"
+            android:textSize="@dimen/dp_20"
+            />
+
+        <EditText
+            android:layout_width="@dimen/dp_200"
+            android:background="@drawable/textview_style"
+            android:layout_centerInParent="true"
+            android:hint="请输入病症名称或关键字"
+            android:textSize="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_40"
+            android:layout_height="@dimen/dp_25"
+            />
+
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_centerVertical="true"
+            android:background="@drawable/common_nav_message_black_n"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"/>
+
+    </RelativeLayout>
+</RelativeLayout>
